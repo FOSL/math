@@ -1,0 +1,129 @@
+// CONSTRUCTORS
+template <typename value_t>
+fixed_size<value_t, uint8_t, 2>::fixed_size(value_t x, value_t y)
+	: x(x), y(y)
+{
+}
+
+// OPERATORS
+template <typename value_t>
+value_t &fixed_size<value_t, uint8_t, 2>::operator[](uint8_t index)
+{
+	return *(((value_t *) this) + index);
+}
+//
+template <typename value_t>
+fixed_size<value_t, uint8_t, 2> &fixed_size<value_t, uint8_t, 2>::operator +=(
+	fixed_size::type const&other)
+{
+	this->x += other.x;
+	this->y += other.y;
+
+	return *this;
+}
+template <typename value_t>
+fixed_size<value_t, uint8_t, 2> &fixed_size<value_t, uint8_t, 2>::operator -=(
+	fixed_size::type const&other)
+{
+	this->x -= other.x;
+	this->y -= other.y;
+
+	return *this;
+}
+template <typename value_t>
+fixed_size<value_t, uint8_t, 2> &fixed_size<value_t, uint8_t, 2>::operator *=(
+	fixed_size::type const&other)
+{
+	this->x *= other.x;
+	this->y *= other.y;
+
+	return *this;
+}
+template <typename value_t>
+fixed_size<value_t, uint8_t, 2> &fixed_size<value_t, uint8_t, 2>::operator /=(
+	fixed_size::type const&other)
+{
+	this->x /= other.x;
+	this->y /= other.y;
+
+	return *this;
+}
+//
+template <typename value_t>
+template <typename magnitude_t>
+fixed_size<value_t, uint8_t, 2> &fixed_size<value_t, uint8_t, 2>::operator *=(
+	magnitude_t magnitude)
+{
+	this->x *= magnitude;
+	this->y *= magnitude;
+
+	return *this;
+}
+template <typename value_t>
+template <typename magnitude_t>
+fixed_size<value_t, uint8_t, 2> &fixed_size<value_t, uint8_t, 2>::operator /=(
+	magnitude_t magnitude)
+{
+	this->x /= magnitude;
+	this->y /= magnitude;
+
+	return *this;
+}
+//
+template <typename value_t>
+fixed_size<value_t, uint8_t, 2> &fixed_size<value_t, uint8_t, 2>::operator-(void)
+{
+	this->x = -this->x;
+	this->y = -this->y;
+
+	return *this;
+}
+//
+template <typename value_t>
+fixed_size<value_t, uint8_t, 2> operator +(
+	fixed_size<value_t, uint8_t, 2> const&lhs,
+	fixed_size<value_t, uint8_t, 2> const&rhs)
+{
+	fixed_size<value_t, uint8_t, 2> result;
+
+	result  = lhs;
+	result += rhs;
+
+	return result;
+}
+template <typename value_t>
+fixed_size<value_t, uint8_t, 2> operator -(
+	fixed_size<value_t, uint8_t, 2> const&lhs,
+	fixed_size<value_t, uint8_t, 2> const&rhs)
+{
+	fixed_size<value_t, uint8_t, 2> result;
+
+	result  = lhs;
+	result -= rhs;
+
+	return result;
+}
+template <typename value_t>
+fixed_size<value_t, uint8_t, 2> operator *(
+	fixed_size<value_t, uint8_t, 2> const&lhs,
+	fixed_size<value_t, uint8_t, 2> const&rhs)
+{
+	fixed_size<value_t, uint8_t, 2> result;
+
+	result  = lhs;
+	result *= rhs;
+
+	return result;
+}
+template <typename value_t>
+fixed_size<value_t, uint8_t, 2> operator /(
+	fixed_size<value_t, uint8_t, 2> const&lhs,
+	fixed_size<value_t, uint8_t, 2> const&rhs)
+{
+	fixed_size<value_t, uint8_t, 2> result;
+
+	result  = lhs;
+	result /= rhs;
+
+	return result;
+}

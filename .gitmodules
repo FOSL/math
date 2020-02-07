@@ -1,0 +1,3 @@
+[submodule "example/library/FOSL/utility"]
+	path = example/library/FOSL/utility
+	url = https://github.com/FOSL/utility.git
